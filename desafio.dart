@@ -1,5 +1,3 @@
-import 'dart:math';
-
 void main() {
 
   //! Detalhe sobre a String
@@ -15,12 +13,12 @@ void main() {
     'João Rahman|55|jornalista|SP',
   ];
 
-  var relatorio = pacientes.map((paciente) => paciente.split('|'));
-
   //! Baseado no array acima monte um relatório onde:
   //! 1 - Apresente os pacientes com mais de 20 anos e print o nome deles
   //! 2 - Apresente quantos pacientes existem para cada profissão (desenvolvedor, estudante, dentista, jornalista)
   //! 3 - Apresente a quantidade de pacientes que moram em SP
+
+  var relatorio = pacientes.map((paciente) => paciente.split('|'));
 
   var pacientesMais20   = [];
   var proficaoPacientes = [];
@@ -50,8 +48,13 @@ void main() {
     resultadoProficao.add([profissao, count]);
   }
 
-  print(pacientesMais20);
-  print(spCount);
-  print(resultadoProficao);
-
+  print("Pacientes com mais de 20 anos:");
+  pacientesMais20.forEach((element) { 
+    print("\t"+element);
+  });
+  print("Quantidade de pacientes por profissão:");
+  resultadoProficao.forEach((element) { 
+    print("\t"+element[0]+": "+element[1].toString());
+  });
+  print("Quantidade de pacientes que moram em SP: " + spCount.toString());
 }
